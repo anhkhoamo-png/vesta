@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="VESTA — Same you. More possibilities. Explore five curated styles through a smart mirror experience." />
+  <title>VESTA — Same you. More possibilities.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
+  <style>
+    :root{--ink:#171716;--muted:#68655f;--cream:#f4f0e9;--panel:#e9e3da;--line:rgba(23,23,22,.14);--white:#fffdf9}
+    *{box-sizing:border-box} html{scroll-behavior:smooth}
+    body{margin:0;background:var(--cream);color:var(--ink);font-family:'DM Sans',sans-serif}
+    button,a{font:inherit} a{color:inherit;text-decoration:none}
+    .nav{height:76px;display:flex;align-items:center;justify-content:space-between;padding:0 5.5vw;border-bottom:1px solid var(--line);background:rgba(244,240,233,.94);position:sticky;top:0;z-index:20;backdrop-filter:blur(14px)}
+    .logo{font-size:25px;letter-spacing:.3em;font-weight:500}.links{display:flex;gap:36px;font-size:14px}.links a{opacity:.72}.links a:hover{opacity:1}.nav-cta{background:var(--ink);color:white;border:0;border-radius:999px;padding:13px 24px;cursor:pointer}
+    .hero{min-height:calc(100vh - 76px);display:grid;grid-template-columns:40% 60%;overflow:hidden}
+    .copy{padding:10vh 5.5vw 8vh;display:flex;flex-direction:column;justify-content:center;position:relative}.eyebrow{text-transform:uppercase;letter-spacing:.3em;font-size:11px;color:#aaa49b;margin-bottom:24px}.copy h1{font-family:'Playfair Display',serif;font-weight:500;font-size:clamp(54px,5.3vw,86px);line-height:.98;letter-spacing:-.045em;margin:0 0 30px;max-width:650px}.copy h1 em{font-weight:500}.copy p{font-size:17px;line-height:1.65;color:#4f4c47;max-width:520px;margin:0 0 34px}.actions{display:flex;gap:12px;flex-wrap:wrap}.btn{border:0;border-radius:999px;padding:15px 23px;cursor:pointer}.btn.dark{background:var(--ink);color:white}.btn.light{background:#e4ded5;color:var(--ink)}
+    .benefits{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:62px}.benefit{font-size:13px;line-height:1.45;color:#45423d}.benefit strong{display:block;font-size:14px;margin-bottom:5px;color:var(--ink)}.icon{font-size:25px;margin-bottom:10px}
+    .mirror-stage{min-height:calc(100vh - 76px);padding:38px 4.5vw 38px 2vw;display:flex;align-items:center;justify-content:center;background:#d7d0c5;position:relative}.mirror{width:min(610px,88%);height:min(810px,88vh);min-height:600px;border:12px solid #1c1b19;border-radius:42px;background:#332e28;box-shadow:0 25px 60px rgba(32,27,22,.25),inset 0 0 0 2px rgba(255,255,255,.18);padding:9px;position:relative}.mirror::before{content:"";position:absolute;inset:5px;border-radius:32px;border:2px solid #c7a97a;box-shadow:0 0 22px rgba(238,204,156,.55);pointer-events:none;z-index:4}.mirror-screen{height:100%;border-radius:29px;overflow:hidden;position:relative;background:#4d443b}.mirror-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;transition:opacity .24s ease,transform .45s ease}.mirror-photo.fade{opacity:0;transform:scale(1.015)}.screen-shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,18,15,.2),transparent 26%,transparent 68%,rgba(15,13,11,.35));z-index:2;pointer-events:none}.mirror-brand{position:absolute;top:30px;left:32px;color:white;z-index:5;font-size:18px;letter-spacing:.28em}.mirror-time{position:absolute;top:61px;left:33px;color:rgba(255,255,255,.8);font-size:10px;z-index:5}
+    .style-panel{position:absolute;right:22px;top:26px;width:118px;padding:12px 10px;border-radius:18px;background:rgba(45,41,37,.67);border:1px solid rgba(255,255,255,.12);z-index:6;backdrop-filter:blur(8px)}.panel-title{color:white;font-size:11px;margin:0 0 9px}.style-btn{display:block;width:100%;border:0;background:transparent;color:white;padding:0;margin:0 0 10px;cursor:pointer;text-align:center}.style-btn img{display:block;width:100%;height:92px;object-fit:cover;object-position:center top;border-radius:10px;border:1px solid transparent;opacity:.76;transition:.2s}.style-btn span{display:block;font-size:10px;margin-top:5px}.style-btn:hover img,.style-btn.active img{opacity:1;border-color:white}.style-btn.active img{box-shadow:0 0 0 1px rgba(255,255,255,.45)}
+    .screen-ui{position:absolute;left:22px;bottom:25px;z-index:6;color:white;display:flex;align-items:center;gap:9px;padding:10px 13px;border-radius:14px;background:rgba(45,41,37,.58);border:1px solid rgba(255,255,255,.12);font-size:11px;backdrop-filter:blur(8px)}.dot{width:7px;height:7px;border-radius:50%;background:#9bd18b;display:inline-block;box-shadow:0 0 8px #9bd18b}.screen-actions{position:absolute;right:22px;bottom:25px;z-index:6;display:flex;gap:8px}.screen-actions button{border:0;border-radius:999px;padding:10px 13px;background:rgba(255,255,255,.92);color:#171716;font-size:10px;cursor:pointer}
+    .section{padding:100px 7vw;background:var(--white)}.section h2{font-family:'Playfair Display',serif;font-size:clamp(38px,4vw,60px);font-weight:500;line-height:1.05;margin:0 0 18px}.section>p{max-width:650px;color:var(--muted);line-height:1.7}.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:45px}.card{padding:26px;border:1px solid var(--line);border-radius:18px;background:#f7f3ed}.card h3{margin:0 0 9px;font-size:17px}.card p{margin:0;color:var(--muted);font-size:13px;line-height:1.6}
+    .showcase{padding:100px 6vw;background:#ded7cc}.showcase-head{text-align:center;max-width:700px;margin:auto}.showcase-head h2{font-family:'Playfair Display',serif;font-size:clamp(42px,5vw,70px);font-weight:500;margin:0 0 15px}.showcase-head p{color:var(--muted);line-height:1.6}.style-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:48px}.style-card{background:#f7f3ed;border-radius:18px;overflow:hidden;cursor:pointer;border:1px solid transparent;transition:.25s}.style-card:hover{transform:translateY(-5px)}.style-card.active{border-color:var(--ink);box-shadow:0 12px 30px rgba(23,23,22,.1)}.style-card img{width:100%;height:360px;object-fit:cover;object-position:center top;display:block}.style-card div{padding:16px}.number{font-size:11px;letter-spacing:.18em;color:#999188}.style-card h3{margin:5px 0 0;font-size:16px}
+    .footer{padding:60px 7vw;background:#1a1917;color:white;display:flex;align-items:center;justify-content:space-between;gap:30px}.footer p{color:#aaa59d;max-width:520px;line-height:1.6;font-size:14px}.footer .nav-cta{background:white;color:var(--ink)}
+    @media(max-width:1050px){.hero{grid-template-columns:1fr}.copy{padding:90px 7vw 60px}.mirror-stage{min-height:850px;padding:30px 5vw}.mirror{height:760px;width:min(570px,95%)}.links{display:none}.cards{grid-template-columns:repeat(2,1fr)}.style-grid{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:620px){.nav{padding:0 22px}.logo{font-size:20px}.nav-cta{padding:11px 15px;font-size:12px}.copy{padding:70px 24px 55px}.copy h1{font-size:50px}.benefits{grid-template-columns:1fr;margin-top:45px}.mirror-stage{min-height:690px;padding:20px 12px}.mirror{width:100%;height:640px;min-height:0;border-width:8px;border-radius:28px}.mirror::before{border-radius:21px}.style-panel{right:13px;top:18px;width:88px;padding:8px}.style-btn img{height:65px}.style-btn span{font-size:8px}.mirror-brand{top:22px;left:22px;font-size:14px}.mirror-time{top:47px;left:23px;font-size:8px}.screen-actions{right:13px;bottom:15px}.screen-ui{left:13px;bottom:15px}.section,.showcase{padding:70px 24px}.cards{grid-template-columns:1fr}.style-grid{grid-template-columns:1fr 1fr}.style-card img{height:250px}.footer{padding:45px 24px;display:block}.footer .nav-cta{margin-top:15px}}
+  </style>
+</head>
+<body>
+  <header class="nav">
+    <a class="logo" href="#top">VESTA</a>
+    <nav class="links" aria-label="Primary navigation">
+      <a href="#experience">Experience</a><a href="#styles">Styles</a><a href="#technology">Technology</a><a href="#about">About</a>
+    </nav>
+    <a class="nav-cta" href="#waitlist">Join the Waitlist</a>
+  </header>
+
+  <main id="top">
+    <section class="hero" id="experience">
+      <div class="copy">
+        <div class="eyebrow">The future of trying on</div>
+        <h1>Same you.<br><em>More possibilities.</em></h1>
+        <p>VESTA is an intelligent mirror concept that lets you explore different looks without changing clothes. Select a style and watch the mirror transform.</p>
+        <div class="actions"><a class="btn dark" href="#styles">Explore the styles&nbsp; →</a><a class="btn light" href="#technology">How it works</a></div>
+        <div class="benefits"><div class="benefit"><div class="icon">⌁</div><strong>Endless styles</strong>Explore different looks in seconds.</div><div class="benefit"><div class="icon">◇</div><strong>More conscious</strong>Visualize before you buy.</div><div class="benefit"><div class="icon">□</div><strong>Shop with confidence</strong>See the look before the decision.</div></div>
+      </div>
+
+      <div class="mirror-stage">
+        <div class="mirror" aria-label="VESTA style mirror">
+          <div class="mirror-screen">
+            <img id="mirrorPhoto" class="mirror-photo" src="assets/essentials.jpg" alt="VESTA model wearing the selected style" />
+            <div class="screen-shade"></div>
+            <div class="mirror-brand">VESTA</div><div class="mirror-time">10:24 AM · TUE, 10 SEP</div>
+            <div class="style-panel">
+              <p class="panel-title">Choose a style</p>
+              <button class="style-btn active" data-style="essentials"><img src="assets/essentials.jpg" alt="Essentials style"><span>Essentials</span></button>
+              <button class="style-btn" data-style="business"><img src="assets/business.jpg" alt="Business style"><span>Business</span></button>
+              <button class="style-btn" data-style="casual"><img src="assets/casual.jpg" alt="Casual style"><span>Casual</span></button>
+              <button class="style-btn" data-style="pyjamas"><img src="assets/pyjamas.jpg" alt="Pyjamas style"><span>Pyjamas</span></button>
+              <button class="style-btn" data-style="luxury"><img src="assets/luxury.jpg" alt="Luxury style"><span>Luxury</span></button>
+            </div>
+            <div class="screen-ui"><span class="dot"></span> Style preview · ON</div>
+            <div class="screen-actions"><button>♡ Save Look</button><button>Add to Bag</button></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="showcase" id="styles">
+      <div class="showcase-head"><div class="eyebrow">One person. Five possibilities.</div><h2>Find your style.</h2><p>Click any look below. The VESTA mirror above changes instantly, creating the feeling of a real in-store smart mirror.</p></div>
+      <div class="style-grid">
+        <article class="style-card active" data-style="essentials"><img src="assets/essentials.jpg" alt="Essentials outfit"><div><span class="number">01</span><h3>Essentials</h3></div></article>
+        <article class="style-card" data-style="business"><img src="assets/business.jpg" alt="Business outfit"><div><span class="number">02</span><h3>Business</h3></div></article>
+        <article class="style-card" data-style="casual"><img src="assets/casual.jpg" alt="Casual outfit"><div><span class="number">03</span><h3>Casual</h3></div></article>
+        <article class="style-card" data-style="pyjamas"><img src="assets/pyjamas.jpg" alt="Pyjamas outfit"><div><span class="number">04</span><h3>Pyjamas</h3></div></article>
+        <article class="style-card" data-style="luxury"><img src="assets/luxury.jpg" alt="Luxury outfit"><div><span class="number">05</span><h3>Luxury</h3></div></article>
+      </div>
+    </section>
+
+    <section class="section" id="technology"><div class="eyebrow">The idea behind VESTA</div><h2>A mirror that makes possibilities visible.</h2><p>Instead of presenting VESTA as a live AI demo, this concept focuses on the experience: one person, one mirror, and a collection of looks that can be explored with a simple tap.</p><div class="cards"><div class="card"><h3>01 · Visualize</h3><p>See a complete outfit presented directly in the mirror.</p></div><div class="card"><h3>02 · Compare</h3><p>Move between style categories without physically changing.</p></div><div class="card"><h3>03 · Discover</h3><p>Explore looks for work, weekends, downtime, and special occasions.</p></div><div class="card"><h3>04 · Decide</h3><p>Feel more confident about what belongs in your wardrobe.</p></div></div></section>
+  </main>
+
+  <footer class="footer" id="waitlist"><div><div class="logo">VESTA</div><p>Same you. More possibilities. A smarter, more visual way to discover what you could wear.</p></div><a class="nav-cta" href="mailto:hello@vesta.example?subject=VESTA%20Waitlist">Join the Waitlist →</a></footer>
+
+  <script>
+    const photos={essentials:'assets/essentials.jpg',business:'assets/business.jpg',casual:'assets/casual.jpg',pyjamas:'assets/pyjamas.jpg',luxury:'assets/luxury.jpg'};
+    const mirrorPhoto=document.getElementById('mirrorPhoto');
+    const allControls=document.querySelectorAll('[data-style]');
+    function selectStyle(style){
+      if(!photos[style]) return;
+      document.querySelectorAll('.style-btn').forEach(b=>b.classList.toggle('active',b.dataset.style===style));
+      document.querySelectorAll('.style-card').forEach(c=>c.classList.toggle('active',c.dataset.style===style));
+      mirrorPhoto.classList.add('fade');
+      window.setTimeout(()=>{mirrorPhoto.src=photos[style];mirrorPhoto.classList.remove('fade')},180);
+    }
+    allControls.forEach(el=>el.addEventListener('click',()=>selectStyle(el.dataset.style)));
+  </script>
+</body>
+</html>
